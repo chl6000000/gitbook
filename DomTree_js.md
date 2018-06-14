@@ -11,17 +11,17 @@ document.images和document.forms属于HTMLCollection对象（只读的类数组�
 	var snapshot=Array.prototype.slice.call(nodelist,0);
 
 
-*	#nav the element of id="nav"
-*	div all div element
-*	.warning all class of element include "warning"
-*	p[lang="fr"] all p element of used lang is "fr"
-*	*[name="x"] all element which name equals "x"
-*	span.fatal.error the class of span element include "fatal" and "error"
-*	span[lang="fr"].warning  the class of span element include "warning" and lang is "fr"
-*	#log span orignal element id is "log", and the direct and indirect children element is span
-*	#log>span orignal element id is "log", and the direct children element is span
-*	body>h1:first-child body element' child element , the first element is h1
-*	div, #log all div element, and all elements of id="log"
+*	`#nav` the element of id="nav"
+*	`div` all div element
+*	`.warning` all class of element include "warning"
+*	`p[lang="fr"]` all p element of used lang is "fr"
+*	`*[name="x"]` all element which name equals "x"
+*	`span.fatal.error` the class of span element include "fatal" and "error"
+*	`span[lang="fr"].warning`  the class of span element include "warning" and lang is "fr"
+*	`#log` span orignal element id is "log", and the direct and indirect children element is span
+*	`#log>span` orignal element id is "log", and the direct children element is span
+*	`body>h1:first-child` body element' child element , the first element is h1
+*	`div, #log` all div element, and all elements of id="log"
 
 *	node
 *	parentnode
