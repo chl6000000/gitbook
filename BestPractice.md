@@ -9,4 +9,13 @@
         * 任何可以在应用层面的动作都应该可以在不执行任何事件处理的情况下进行。
         * 任何事件处理程序都应该处理事件，然后将处理转交给应用逻辑。
 
+4. 优化DOM交互
+    * DOM操作与交互要消耗大量时间，因为它们需要重新渲染整个页面或其中一部分，理解如何优化与DOM的交互可以提高脚本完成的效率。
+        * 一般需要更新DOM,可以考虑使用文档片段来构建DOM结构，然后再将其添加到现存的文档中。
+        * 注意HTMLCollection，任何时候要访问HTMLCollection，不管是一个属性还是一个方法，都是在文档上查询，其开销很昂贵，最小化访问HTMLCollection的次数可以极大改进脚本的性能。发生以下情况会返回HTMLCollection对象，
+            * 进行了对getElementsByTagName()的调用；
+            * 获取了元素的childNodes属性；
+            * 获取了元素的attributes属性；
+            * 访问了特殊的集合，如document.forms, document.images
+            
 
