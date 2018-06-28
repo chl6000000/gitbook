@@ -8,8 +8,14 @@
     * learn bussiness logic, and create input data 
     
 
+------------------------------------------
+--Find all text under span element.
+var spans = $("icx-dynamic-view span");
+var reg = /<i>(\S*)<\/i>/ig;
 
-    var spans=$("icx-dynamic-view span");for(var i=0;i<spans.length;i++){string test=spans[i].innerHTML console.log(spans[i].innerHTML)}
-
-
-var spans=$("icx-dynamic-view span");var reg=/<i>(\S*)<\/i>/ig;for(var i=0;i<spans.length;i++){var spantxt=spans[i].innerHTML.replace(spans[i].innerHTML.match(reg),'');console.log(spantxt)}
+for (var i = 0; i < spans.length; i++) {
+    if (spans[i].firstChild && spans[i].firstChild.data)
+        if (spans[i].firstChild.data.trim().length > 1)
+            console.log(spans[i].firstChild.data)
+}
+---------------------------------------------
