@@ -9,6 +9,7 @@
     
 
 ------------------------------------------
+<pre><code>
 --Find all text under span element.
 var spans = $("icx-dynamic-view span");
 var reg = /<i>(\S*)<\/i>/ig;
@@ -18,4 +19,5 @@ for (var i = 0; i < spans.length; i++) {
         if (spans[i].firstChild.data.trim().length > 1)
             console.log(spans[i].firstChild.data)
 }
+</code></pre>
 ---------------------------------------------
