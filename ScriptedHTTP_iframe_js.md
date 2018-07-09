@@ -132,7 +132,44 @@ iframe用于隔离父-子页面和提供特殊的布局格式，想上中下格�
 
 1. 方便插入第三方内容，不担心影响整体页面加载，例如联盟广告
 2. 缓存网页，主要是在网络不好的时候
-3. postMessage通信
+3. postMessage通信, (提供了一种受控机制来规避这种限制：对两个不同页面的脚本，只有当执行它们的页面位于具有相同的协议，端口号，以及主机如document.domain 相同时，这两个脚本才能相互通信。 )
 4. 安全沙箱，避免污染环境
 5. 流量作弊，嵌入一个不展现的iframe页面，反作弊很难发现
 
+
+
+-----------
+window.postMessage()方法可以安全的《跨源》通信。
+window.postMessage()方法被调用时，会在所有页面脚本执行完毕之后向目标窗口派发一个MessageEvent消息。该MessageEvent消息有四个属性需要注意：
+* message属性表示该message的类型
+* data属性为window.postMessage的第一个参数
+* origin 属性表示调用window.postMessage()方法时调用页面的当前状态
+* source 属性记录调用window.postMessage()方法的窗口信息
+
+语法： otherWindow.postMessage(message,targetOrigin,[transfer]);
+* otherWindow 其他窗口的一个引用，如iframe.contentWindow
+* message 将要发送到其他window的数据。它将被结构化克隆算法序列化。
+* targetOrigin 通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串（*）或一个特定的URL,发送消息是必须保证目标窗口的协议，主机地址和端口这三项完全匹配，才会被发送。这个机制用来控制消息可以发送到哪些窗口。
+
+<pre><code>
+//code come from https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage
+var popus=window.open(...);
+popup.postMessage("this is simpale message need be transfer","https://secure.example.net");
+popup.postMessage("hello", "http://example.org");
+function reeciveMessage(event){
+    if(event.origin!=="http://example.org")return;
+}
+window.addEventListener("message",receiveMessage,false);
+</code></pre>
+
+//////////
+
+<pre><code>
+function receiveMessage(event){
+    if(event.origin!=="http://example.com:8080")return; 
+ // event.source: the popup page by window.open
+ // event.data : "hello"
+    event.source.postMessage("hi there yourself",event.origin);
+}
+window.addEventListener("message",receiveMessage,false);
+</code></pre>
