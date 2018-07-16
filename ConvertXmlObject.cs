@@ -38,6 +38,7 @@ namespace ConsoleApp
 
             public List<Teacher> teacher { set; get; }
         }
+
         public class Teacher
         {
             public string name { get; set; }
@@ -103,10 +104,13 @@ namespace ConsoleApp
                 using (MemoryStream Stream = new MemoryStream())
                 {
                     XmlSerializer xml = new XmlSerializer(type);
+                    XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+                    ns.Add(string.Empty, string.Empty);
                     try
                     {
-                        xml.Serialize(Stream, obj);
-                    }
+                        xml.Serialize(Stream, obj, ns); // remove the standare namespce definitions
+                        //xml.Serialize(Stream, obj); // with default namespace that added by xml serializer
+                    }                    }
                     catch (InvalidOperationException)
                     {
                         throw;
