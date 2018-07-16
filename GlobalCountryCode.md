@@ -174,7 +174,7 @@
 <td>ALA</td>
 <td>248</td>
 <td>ISO 3166-2:AX</td>
-<td>?aland Island</td>
+<td>Aland Island</td>
 <td>奥兰群岛</td>
 <td>奥兰群岛</td>
  <td>亚兰群岛</td>
