@@ -1,0 +1,36 @@
+{
+    "output": null,
+    "generator": "site",
+    "title": "ebook2",
+    "description": null,
+    
+    "extension": null,
+
+    "github": null,
+    "githubHost": "https://github.com/",
+
+    "plugins": [],
+
+    "pluginsConfig": {
+        "fontSettings": {
+            "theme": "sepia",
+            "family": "serif" ,
+            "size": "1 to 4"
+        }
+    },
+
+    "links": {
+
+    	"sidebar": {
+    	    "Custom link name": "https://customlink.com"
+    	},
+
+        "sharing": {
+            "google": null,
+            "facebook": null,
+            "twitter": null,
+            "weibo": null,
+            "all": null
+        }
+    }
+}
