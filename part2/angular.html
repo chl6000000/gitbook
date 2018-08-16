@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Part II: UI · ebook 2</title>
+        <title>Angular Concept · ebook 2</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="webStorageAPI.html" />
     
-    
-    <link rel="prev" href="../part1/gitbook.html" />
+    <link rel="prev" href="webStorageAPI.html" />
     
 
     </head>
@@ -143,7 +141,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="./">
             
                 <a href="./">
             
@@ -170,7 +168,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="angular.html">
+        <li class="chapter active" data-level="1.3.2" data-path="angular.html">
             
                 <a href="angular.html">
             
@@ -218,7 +216,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Part II: UI</a>
+        <a href=".." >Angular Concept</a>
     </h1>
 </div>
 
@@ -233,8 +231,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="part-ii-ui">Part II: UI</h1>
-<p>This part introudce Angular and HTTP concept</p>
+                                <h1 id="angular-concept">Angular Concept</h1>
+<h2 id="angularjs-&#x5E94;&#x7528;&#x67B6;&#x6784;">AngularJS &#x5E94;&#x7528;&#x67B6;&#x6784;</h2>
+<p>&#x5355;&#x9875;&#x9762;&#x5E94;&#x7528;&#xFF0C; </p>
+<h3 id="html&#x5143;&#x7D20;&#x5305;&#x542B;angularjs&#x5E94;&#x7528;ng-app">html&#x5143;&#x7D20;&#x5305;&#x542B;AngularJS&#x5E94;&#x7528;(ng-app=)</h3>
+<h3 id="html&#x9875;&#x9762;&#x5143;&#x7D20;&#x5B9A;&#x4E49;&#x4E86;-&#x63A7;&#x5236;&#x5668;&#x7684;&#x4F5C;&#x7528;&#x57DF;ng-controller">html&#x9875;&#x9762;&#x5143;&#x7D20;&#x5B9A;&#x4E49;&#x4E86; &#x63A7;&#x5236;&#x5668;&#x7684;&#x4F5C;&#x7528;&#x57DF;(ng-controller=),</h3>
+<blockquote>
+<p>&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x63A7;&#x5236;&#x5668; AngularJS&#x5728;HTML DOMContentLoaded&#x4E8B;&#x4EF6;&#x4E2D;&#x81EA;&#x52A8;&#x5F00;&#x59CB;&#xFF0C; &#x5982;&#x679C;&#x627E;&#x5230;ng-app&#x6307;&#x4EE4;&#xFF0C;AngularJS&#x8F7D;&#x5165;&#x6307;&#x4EE4;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x5C06;ng-app &#x4F5C;&#x4E3A;&#x5E94;&#x7528;&#x7684;&#x6839;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#x3002; &#x5E94;&#x7528;&#x7684;&#x6839;&#x53EF;&#x4EE5;&#x662F;&#x6574;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x6216;&#x8005;&#x9875;&#x9762;&#x7684;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#xFF08;&#x66F4;&#x5FEB;&#x7684;&#x7F16;&#x8BD1;&#xFF0C;&#x6267;&#x884C;&#xFF09;</p>
+<blockquote>
+<p>ng-model&#x6307;&#x4EE4;&#x7ED1;&#x5B9A;&#x4E86; textarea &#x5230;&#x63A7;&#x5236;&#x5668;&#x53D8;&#x91CF;message. </p>
+<p>ng-click&#x4E8B;&#x4EF6;&#x8C03;&#x7528;&#x4E86;&#x63A7;&#x5236;&#x5668;&#x51FD;&#x6570; clear() ng-bind&#x6307;&#x4EE4;&#x7ED1;&#x5B9A;&#x63A7;&#x5236;&#x5668;&#x51FD;&#x6570; &#x5230; &#x5143;&#x7D20;</p>
+</blockquote>
+</blockquote>
+<h2 id="dependency-injection-&#x4E00;&#x4E2A;&#x6216;&#x66F4;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#xFF08;&#x6216;&#x670D;&#x52A1;&#x88AB;&#x6CE8;&#x5165;&#xFF08;&#x6216;&#x901A;&#x8FC7;&#x5F15;&#x7528;&#x4F20;&#x9012;&#xFF09;&#x5230;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x6210;&#x4E3A;&#x8BE5;&#x5BA2;&#x6237;&#x7AEF;&#x72B6;&#x6001;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;">Dependency Injection &#x4E00;&#x4E2A;&#x6216;&#x66F4;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#xFF08;&#x6216;&#x670D;&#x52A1;)&#x88AB;&#x6CE8;&#x5165;&#xFF08;&#x6216;&#x901A;&#x8FC7;&#x5F15;&#x7528;&#x4F20;&#x9012;&#xFF09;&#x5230;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x6210;&#x4E3A;&#x8BE5;&#x5BA2;&#x6237;&#x7AEF;&#x72B6;&#x6001;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</h2>
+<blockquote>
+<p>&#x8BE5;&#x6A21;&#x5F0F;&#x5206;&#x79BB;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x4F9D;&#x8D56;&#x672C;&#x8EAB;&#x884C;&#x4E3A;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x53D8;&#x5F97;&#x677E;&#x8026;&#x5408;&#xFF0C;&#x5E76;&#x9075;&#x5FAA;&#x4F9D;&#x8D56;&#x53CD;&#x8F6C;&#x548C;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;&#x3002; &#x4E0E;&#x670D;&#x52A1;&#x5B9A;&#x4F4D;&#x6A21;&#x5F0F;&#x5F62;&#x6210;&#x76F4;&#x63A5;&#x5BF9;&#x6BD4;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x5BA2;&#x6237;&#x7AEF;&#x4E86;&#x89E3;&#x5BA2;&#x6237;&#x7AEF;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x8BE5;&#x7CFB;&#x7EDF;&#x627E;&#x5230;&#x4F9D;&#x8D56;&#x3002;</p>
+</blockquote>
 
                                 
                                 </section>
@@ -262,14 +274,10 @@
 
             
                 
-                <a href="../part1/gitbook.html" class="navigation navigation-prev " aria-label="Previous page: GitBook Install">
+                <a href="webStorageAPI.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Web Storage API">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="webStorageAPI.html" class="navigation navigation-next " aria-label="Next page: Web Storage API">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -278,7 +286,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Part II: UI","level":"1.3","depth":1,"next":{"title":"Web Storage API","level":"1.3.1","depth":2,"path":"part2/webStorageAPI.md","ref":"part2/webStorageAPI.md","articles":[]},"previous":{"title":"GitBook Install","level":"1.2.1","depth":2,"path":"part1/gitbook.md","ref":"part1/gitbook.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Go to main page":"http://www.chl6000000.com"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part2/README.md","mtime":"2018-08-16T09:19:23.141Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-16T09:29:29.908Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Angular Concept","level":"1.3.2","depth":2,"previous":{"title":"Web Storage API","level":"1.3.1","depth":2,"path":"part2/webStorageAPI.md","ref":"part2/webStorageAPI.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Go to main page":"http://www.chl6000000.com"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part2/angular.md","mtime":"2018-08-16T09:28:51.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-16T09:29:29.908Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
