@@ -36,3 +36,7 @@
 >启动服务, 使用下列命令会运行一个 web 服务, 通过 http://localhost:4000/ 可以预览书籍
 
     $ gitbook serve
+
+
+ 参考资料
+ * [使用 Gitbook 打造你的电子书](http://www.cnblogs.com/jingmoxukong/p/7453155.html)
