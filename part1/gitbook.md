@@ -38,6 +38,7 @@
     $ gitbook serve
 
 >生成电子书
+
 ```s
     # Generate a PDF file
     $ gitbook pdf ./ ./mybook.pdf
