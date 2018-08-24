@@ -37,6 +37,17 @@
 
     $ gitbook serve
 
+>生成电子书
+```s
+    # Generate a PDF file
+    $ gitbook pdf ./ ./mybook.pdf
+
+    # Generate an ePub file
+    $ gitbook epub ./ ./mybook.epub
+
+    # Generate a Mobi file
+    $ gitbook mobi ./ ./mybook.mobi
+```
 
  参考资料
  * [使用 Gitbook 打造你的电子书](http://www.cnblogs.com/jingmoxukong/p/7453155.html)
