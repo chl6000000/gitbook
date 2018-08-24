@@ -363,293 +363,293 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="srp-simple">SRP simple</h1>
-<pre><code class="lang-c#">    #if Old
-        // THE class is doing things WHICH HE IS NOT SUPPOSED TO DO. 
-        // its over loaded with lot of responsibility.
-        // customer class should do customer data validations. 
-        // but if you see the catch block closely it also doing LOGGING activity.  
-    class Customer
+<pre><code class="lang-c">    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Old</span>
+        <span class="hljs-comment">// THE class is doing things WHICH HE IS NOT SUPPOSED TO DO. </span>
+        <span class="hljs-comment">// its over loaded with lot of responsibility.</span>
+        <span class="hljs-comment">// customer class should do customer data validations. </span>
+        <span class="hljs-comment">// but if you see the catch block closely it also doing LOGGING activity.  </span>
+    <span class="hljs-keyword">class</span> Customer
     {
-        public void Add()
-        {
-            try
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span>
+        </span>{
+            <span class="hljs-keyword">try</span>
             {
-                //database code goes here
+                <span class="hljs-comment">//database code goes here</span>
             }
-            catch (Exception ex)
+            <span class="hljs-keyword">catch</span> (Exception ex)
             {
-                System.IO.File.WriteAllText(@&quot;c:\error.text&quot;, 
+                System.IO.File.WriteAllText(@<span class="hljs-string">&quot;c:\error.text&quot;</span>, 
                 DateTime.Now.ToString() + ex.StackTrace + ex.Message);
             }
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-    #if Improve
-    class FileLogger
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Improve</span>
+    <span class="hljs-keyword">class</span> FileLogger
         {
-        public void Handle(string error)
-        {
-            System.IO.File.WriteAllText(@&quot;c:\error.text&quot;, error);
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span>
+        </span>{
+            System.IO.File.WriteAllText(@<span class="hljs-string">&quot;c:\error.text&quot;</span>, error);
         }
     }
-    class Customer
+    <span class="hljs-keyword">class</span> Customer
     {
-        private FileLogger obj = new FileLogger();
-        public virtual void Add()
-        {
-            try
+        <span class="hljs-keyword">private</span> FileLogger obj = <span class="hljs-keyword">new</span> FileLogger();
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span>
+        </span>{
+            <span class="hljs-keyword">try</span>
             {
-                //database code goes here
+                <span class="hljs-comment">//database code goes here</span>
             }
-            catch (Exception ex)
+            <span class="hljs-keyword">catch</span> (Exception ex)
             {
                 obj.Handle(DateTime.Now.ToString() + ex.StackTrace + ex.Message);
             }
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
 
-#   OCP sample
-     #if Old
-    class customer
+<span class="hljs-meta">#   OCP sample</span>
+     <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Old</span>
+    <span class="hljs-keyword">class</span> customer
     {
-        private int _CustType;
-        public int CustType
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _CustType;
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> CustType
         {
-            get { return _CustType; }
-            set { _CustType = value; }
+            get { <span class="hljs-keyword">return</span> _CustType; }
+            <span class="hljs-built_in">set</span> { _CustType = value; }
         }
-        public double getDiscount(double TotalSales)
-        {
-            /* if we add a new customer type we need to go 
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span>
+        </span>{
+            <span class="hljs-comment">/* if we add a new customer type we need to go 
              * and add one more &quot;IF&quot; condition in the &quot;getDiscount&quot; function, 
-             * we need change the customer class. */
-            if (_CustType == 1) return TotalSales - 100;
-            else return TotalSales - 50;
+             * we need change the customer class. */</span>
+            <span class="hljs-keyword">if</span> (_CustType == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> TotalSales - <span class="hljs-number">100</span>;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> TotalSales - <span class="hljs-number">50</span>;
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-    #if Improve
-    // putting in simple words the &quot;Customer&quot; class is now closed for any new modificatin 
-    // but it&apos;s open for extensions when new customer types are added to the project.
-    class Customer
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Improve</span>
+    <span class="hljs-comment">// putting in simple words the &quot;Customer&quot; class is now closed for any new modificatin </span>
+    <span class="hljs-comment">// but it&apos;s open for extensions when new customer types are added to the project.</span>
+    <span class="hljs-keyword">class</span> Customer
     {
-        public virtual double getDiscount(double TotalSales) { return TotalSales; }
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span> </span>{ <span class="hljs-keyword">return</span> TotalSales; }
     }
 
-    class SilverCustomer : Customer
+    <span class="hljs-keyword">class</span> SilverCustomer : Customer
     {
-        public override double getDiscount(double TotalSales)
-        {
-            return base.getDiscount(TotalSales) - 50;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> override <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span>
+        </span>{
+            <span class="hljs-keyword">return</span> base.getDiscount(TotalSales) - <span class="hljs-number">50</span>;
         }
     }
-    class goldCusomter : Customer
+    <span class="hljs-keyword">class</span> goldCusomter : Customer
     {
-        public override double getDiscount(double TotalSales)
-        {
-            return base.getDiscount(TotalSales) - 100;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> override <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span>
+        </span>{
+            <span class="hljs-keyword">return</span> base.getDiscount(TotalSales) - <span class="hljs-number">100</span>;
         }
     }
-        #endif
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
 
-#   LSP sample
-    #if Old
-    class Customer
+<span class="hljs-meta">#   LSP sample</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Old</span>
+    <span class="hljs-keyword">class</span> Customer
     {
-        public virtual double getDiscount(double TotalSales) { return TotalSales; }
-        public virtual void Add() { }
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span> </span>{ <span class="hljs-keyword">return</span> TotalSales; }
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span> </span>{ }
     }
 
-    /// &lt;summary&gt;
-    /// per the inheritance hierarchy the &quot;Customer&quot; object can point to any one of its child objects 
-    /// and we do not expect any unusual behavior.
-    /// but when &quot;Add&quot; method of the &quot;Enquiry&quot; object is invoked 
-    /// it leads to error &quot;Exception was unhandled&quot; during runingtime.
-    /// because our &quot;Equiry&quot; object does save enquires to database as they are not actual customer.
-    /// &lt;/summary&gt;
-    class Enquiry:Customer
+    <span class="hljs-comment">/// &lt;summary&gt;</span>
+    <span class="hljs-comment">/// per the inheritance hierarchy the &quot;Customer&quot; object can point to any one of its child objects </span>
+    <span class="hljs-comment">/// and we do not expect any unusual behavior.</span>
+    <span class="hljs-comment">/// but when &quot;Add&quot; method of the &quot;Enquiry&quot; object is invoked </span>
+    <span class="hljs-comment">/// it leads to error &quot;Exception was unhandled&quot; during runingtime.</span>
+    <span class="hljs-comment">/// because our &quot;Equiry&quot; object does save enquires to database as they are not actual customer.</span>
+    <span class="hljs-comment">/// &lt;/summary&gt;</span>
+    <span class="hljs-keyword">class</span> Enquiry:Customer
     {
-        public override double getDiscount(double TotalSales)
-        {
-            return base.getDiscount(TotalSales)-5;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> override <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span>
+        </span>{
+            <span class="hljs-keyword">return</span> base.getDiscount(TotalSales)<span class="hljs-number">-5</span>;
         }
-        public override void Add()
-        {
-            throw new Exception(&quot;Not allowed&quot;);
+        <span class="hljs-function"><span class="hljs-keyword">public</span> override <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span>
+        </span>{
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">&quot;Not allowed&quot;</span>);
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-    #if Improve
-    /// &lt;summary&gt;
-    /// per the inheritance hierarchy the &quot;Customer&quot; object can point to any one of its child objects 
-    /// and we do not expect any unusual behavior.
-    /// but when &quot;Add&quot; method of the &quot;Enquiry&quot; object is invoked 
-    /// it leads to error &quot;Exception was unhandled&quot; during runingtime.
-    /// because our &quot;Equiry&quot; object does save enquires to database as they are not actual customer.
-    /// 
-    /// In other words the &quot;Enquiry&quot; has discount calculation, it looks like a &quot;Customer&quot; but it is not a customer. 
-    /// so the parent cannot replace the child object seamlessly. 
-    /// &quot;Customer&quot; is not the actual parent for the &quot;Enquiry&quot; class. &quot;Enquiry&quot; is a different entity altogether.
-    /// 
-    /// So LISKOV principle says the parent should easily replace the child object.
-    /// So to implement LISKOV we need to create two interfaces one is for discount and other for database. 
-    /// &lt;/summary&gt;
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Improve</span>
+    <span class="hljs-comment">/// &lt;summary&gt;</span>
+    <span class="hljs-comment">/// per the inheritance hierarchy the &quot;Customer&quot; object can point to any one of its child objects </span>
+    <span class="hljs-comment">/// and we do not expect any unusual behavior.</span>
+    <span class="hljs-comment">/// but when &quot;Add&quot; method of the &quot;Enquiry&quot; object is invoked </span>
+    <span class="hljs-comment">/// it leads to error &quot;Exception was unhandled&quot; during runingtime.</span>
+    <span class="hljs-comment">/// because our &quot;Equiry&quot; object does save enquires to database as they are not actual customer.</span>
+    <span class="hljs-comment">/// </span>
+    <span class="hljs-comment">/// In other words the &quot;Enquiry&quot; has discount calculation, it looks like a &quot;Customer&quot; but it is not a customer. </span>
+    <span class="hljs-comment">/// so the parent cannot replace the child object seamlessly. </span>
+    <span class="hljs-comment">/// &quot;Customer&quot; is not the actual parent for the &quot;Enquiry&quot; class. &quot;Enquiry&quot; is a different entity altogether.</span>
+    <span class="hljs-comment">/// </span>
+    <span class="hljs-comment">/// So LISKOV principle says the parent should easily replace the child object.</span>
+    <span class="hljs-comment">/// So to implement LISKOV we need to create two interfaces one is for discount and other for database. </span>
+    <span class="hljs-comment">/// &lt;/summary&gt;</span>
 
     interface IDiscount
     {
-        double getDiscount(double TotalSales);
+        <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span></span>;
     }
     interface IDatabase
     {
-        void Add();
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span></span>;
     }
-    class Enquiry : IDiscount
+    <span class="hljs-keyword">class</span> Enquiry : IDiscount
     {
-        public double getDiscount(double TotalSales)
-        {
-            return TotalSales - 5;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span>
+        </span>{
+            <span class="hljs-keyword">return</span> TotalSales - <span class="hljs-number">5</span>;
         }
     }
-    class Cusomer : IDiscount, IDatabase
+    <span class="hljs-keyword">class</span> Cusomer : IDiscount, IDatabase
     {
-        private FileLogger obj = new FileLogger();
-        public virtual void Add()
-        {
-            try { }
-            catch (Exception ex)
+        <span class="hljs-keyword">private</span> FileLogger obj = <span class="hljs-keyword">new</span> FileLogger();
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span>
+        </span>{
+            <span class="hljs-keyword">try</span> { }
+            <span class="hljs-keyword">catch</span> (Exception ex)
             {
                 obj.Handle(DateTime.Now.ToString() + ex.StackTrace + ex.Message);
             }
         }
-        public virtual double getDiscount(double TotalSales) { return TotalSales; }
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getDiscount</span><span class="hljs-params">(<span class="hljs-keyword">double</span> TotalSales)</span> </span>{ <span class="hljs-keyword">return</span> TotalSales; }
     }
-    /// &lt;summary&gt;
-    /// assisitant class
-    /// &lt;/summary&gt;
-    class FileLogger
+    <span class="hljs-comment">/// &lt;summary&gt;</span>
+    <span class="hljs-comment">/// assisitant class</span>
+    <span class="hljs-comment">/// &lt;/summary&gt;</span>
+    <span class="hljs-keyword">class</span> FileLogger
     {
-        public void Handle(string error)
-        {
-            System.IO.File.WriteAllText(@&quot;c:\error.text&quot;, error);
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span>
+        </span>{
+            System.IO.File.WriteAllText(@<span class="hljs-string">&quot;c:\error.text&quot;</span>, error);
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
 
-#   ISP sample
+<span class="hljs-meta">#   ISP sample</span>
 
-    #if Old
-    /// &lt;summary&gt;
-    /// the new requirement which as come up, 
-    /// we have two kinds of client&apos;s: who want&apos;s just use &quot;Add&quot; method. another who wants to use &quot;Add&quot; + &quot;Read&quot;.
-    /// 
-    /// it&apos;s not good idea to add Read method in IDatabase interface, it will affect current client.
-    /// &lt;/summary&gt;
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Old</span>
+    <span class="hljs-comment">/// &lt;summary&gt;</span>
+    <span class="hljs-comment">/// the new requirement which as come up, </span>
+    <span class="hljs-comment">/// we have two kinds of client&apos;s: who want&apos;s just use &quot;Add&quot; method. another who wants to use &quot;Add&quot; + &quot;Read&quot;.</span>
+    <span class="hljs-comment">/// </span>
+    <span class="hljs-comment">/// it&apos;s not good idea to add Read method in IDatabase interface, it will affect current client.</span>
+    <span class="hljs-comment">/// &lt;/summary&gt;</span>
     interface IDatabase
     {
-        void Add(); // old client are happy with these.
-        void Read(); // add for new clients.
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// old client are happy with these.</span>
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Read</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// add for new clients.</span>
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-    #if Improve
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Improve</span>
     interface IDatabase
     {
-        void Add(); // old client are happy with these.
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// old client are happy with these.</span>
     }
-    /// &lt;summary&gt;
-    /// a better approach would be to keep exisitng clients in their own sweet world 
-    /// and the serve the new clients&apos;s separately.
-    /// &lt;/summary&gt;
+    <span class="hljs-comment">/// &lt;summary&gt;</span>
+    <span class="hljs-comment">/// a better approach would be to keep exisitng clients in their own sweet world </span>
+    <span class="hljs-comment">/// and the serve the new clients&apos;s separately.</span>
+    <span class="hljs-comment">/// &lt;/summary&gt;</span>
     interface IDatabaseV1 : IDatabase
     {
-        void Read();
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Read</span><span class="hljs-params">()</span></span>;
     }
-    class CusomterWithRead : IDatabase, IDatabaseV1
+    <span class="hljs-keyword">class</span> CusomterWithRead : IDatabase, IDatabaseV1
     {
-        public void Add() {
-            Cusomter obj = new Cusomter();
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span> </span>{
+            Cusomter obj = <span class="hljs-keyword">new</span> Cusomter();
             obj.Add();
         }
-        public void Read() { // logic for read
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Read</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// logic for read</span>
         }
     }
-    #endif
-    //IDatabase i = new Customer(); // 1000 happy old clients not touched
-    //i.Add();
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-comment">//IDatabase i = new Customer(); // 1000 happy old clients not touched</span>
+    <span class="hljs-comment">//i.Add();</span>
 
-    //IDatabaseV1 iv1 = new CustomerWithread(); // new clients
-    //Iv1.Read();
+    <span class="hljs-comment">//IDatabaseV1 iv1 = new CustomerWithread(); // new clients</span>
+    <span class="hljs-comment">//Iv1.Read();</span>
 
 
-#   DIP sample
-    #if Old
-    /// &lt;summary&gt;
-    /// the logger class is satisfy SRP. 
-    /// If we want change logger , for example, database logger, EventViewer logger, 
-    /// we have to change customer code, it&apos;s not good idea.
-    /// &lt;/summary&gt;
-    class Customer
+<span class="hljs-meta">#   DIP sample</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Old</span>
+    <span class="hljs-comment">/// &lt;summary&gt;</span>
+    <span class="hljs-comment">/// the logger class is satisfy SRP. </span>
+    <span class="hljs-comment">/// If we want change logger , for example, database logger, EventViewer logger, </span>
+    <span class="hljs-comment">/// we have to change customer code, it&apos;s not good idea.</span>
+    <span class="hljs-comment">/// &lt;/summary&gt;</span>
+    <span class="hljs-keyword">class</span> Customer
     {
-        private FileLogger obj = new FileLogger();
-        public virtual void Add()
-        {
-            try {
-                // database code logic.
+        <span class="hljs-keyword">private</span> FileLogger obj = <span class="hljs-keyword">new</span> FileLogger();
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span><span class="hljs-params">()</span>
+        </span>{
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">// database code logic.</span>
             }
-            catch(Exception ex) { obj.Handle(ex.ToString()); }
+            <span class="hljs-keyword">catch</span>(Exception ex) { obj.Handle(ex.ToString()); }
         }
     }
-    class FileLogger
+    <span class="hljs-keyword">class</span> FileLogger
     {
-        public void Handle(string error)
-        {
-            System.IO.File.WriteAllText(@&quot;c:\error.text&quot;, error);
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span>
+        </span>{
+            System.IO.File.WriteAllText(@<span class="hljs-string">&quot;c:\error.text&quot;</span>, error);
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-    #if Improve
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> Improve</span>
     interface ILogger
     {
-        void Handle(string error);
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span></span>;
     }
-    class FileLogger: ILogger
+    <span class="hljs-keyword">class</span> FileLogger: ILogger
     {
-        public void Handle(string error)
-        {
-            System.IO.File.WriteAllText(@&quot;c:\error.text&quot;, error);
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span>
+        </span>{
+            System.IO.File.WriteAllText(@<span class="hljs-string">&quot;c:\error.text&quot;</span>, error);
         }
     }
-    class DatabaseLogger : ILogger
+    <span class="hljs-keyword">class</span> DatabaseLogger : ILogger
     {
-        public void Handle(string error)
-        {
-            // log wirte to database table.
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span>
+        </span>{
+            <span class="hljs-comment">// log wirte to database table.</span>
         }
     }
-    class EventViewerLogger : ILogger
+    <span class="hljs-keyword">class</span> EventViewerLogger : ILogger
     {
-        public void Handle(string error)
-        {
-           // log errors to event viewer.
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Handle</span><span class="hljs-params">(<span class="hljs-built_in">string</span> error)</span>
+        </span>{
+           <span class="hljs-comment">// log errors to event viewer.</span>
         }
     }
-    class Customer : IDiscount, IDatabase
+    <span class="hljs-keyword">class</span> Customer : IDiscount, IDatabase
     {
-        private ILogger logObj;
-        public Customer(ILogger log)
-        {
-            logObj = log;
+        <span class="hljs-keyword">private</span> ILogger logObj;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Customer</span><span class="hljs-params">(ILogger <span class="hljs-built_in">log</span>)</span>
+        </span>{
+            logObj = <span class="hljs-built_in">log</span>;
         }
     }
-    #endif
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 </code></pre>
 
                                 
@@ -674,7 +674,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SOLID sample","level":"1.6.1","depth":2,"previous":{"title":"Part V: Design principles","level":"1.6","depth":1,"path":"part5/SOLID.md","ref":"part5/SOLID.md","articles":[{"title":"SOLID sample","level":"1.6.1","depth":2,"path":"part5/SOLID_sample.md","ref":"part5/SOLID_sample.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Github Home":"https://github.com/chl6000000/gitbook"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part5/SOLID_sample.md","mtime":"2018-08-24T02:29:23.276Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T02:49:57.775Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SOLID sample","level":"1.6.1","depth":2,"previous":{"title":"Part V: Design principles","level":"1.6","depth":1,"path":"part5/SOLID.md","ref":"part5/SOLID.md","articles":[{"title":"SOLID sample","level":"1.6.1","depth":2,"path":"part5/SOLID_sample.md","ref":"part5/SOLID_sample.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Github Home":"https://github.com/chl6000000/gitbook"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part5/SOLID_sample.md","mtime":"2018-08-24T02:53:15.113Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T02:53:31.389Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

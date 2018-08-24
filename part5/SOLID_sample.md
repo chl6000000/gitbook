@@ -1,6 +1,6 @@
 # SRP simple
 
-```c#
+```c
     #if Old
         // THE class is doing things WHICH HE IS NOT SUPPOSED TO DO. 
         // its over loaded with lot of responsibility.
