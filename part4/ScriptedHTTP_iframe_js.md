@@ -11,13 +11,16 @@ Single Page Application，没错，iframe确实是最原始的SPA的做法，但
 * 在数据提交上iframe相比ajax能够提供更高的稳定性以及兼容度，因此在这方面使用一下无妨；
 * 同时iframe的作用是内嵌网页，如果需要引用别的网页做说明，iframe也是必要的。但是，利用内嵌网页的方式引入固定的内容是完全错误地！虽然现在很多开源程序的后台仍在使用这种做法，这不过是开发者偷懒的手段而已，在前台应用中应极力避免这种做法，无论是对用户还是对搜索引擎的友好度这种做法都是极傻。回到问题来，题主你竟然不知道可以通过后端引入公用模块的方式让页面某一区域内容固定！！！将导航栏的内容抽离成一个模板，通过后端引入再和本页的内容拼接输出，这是后端新手都应该懂的常识来的吧←_←使用后端引入的话，每次页面打开导航区和内容区都是一并加载的，实现的效果和你在每个页面都复制一个导航区是一样的。只是在代码上文件被拆分方便管理而已。
 * 请不要在意每次都要重新加载导航区，那一点代码产生的带宽资源占用和你页面上的图片以及JQ库比起来算不了什么。题主想的方式是使用ajax读取每个页面的内容并填充到内容区。这么做并无不妥，但是做法也忒蛋疼了点，还不如直接用iframe引用导航栏。ajax是不应该被滥用，在一些交互上使用ajax避免页面整体刷新减少请求量是一种很方便的做法，但是页面切换也用ajax那就是2B做法了。
-* 至于高度自适应的问题，可以通过JS来做，在页面ready的时候判断内容区元素的高度是否未填充满，不满则设置到$(window).height()。
+* 至于高度自适应的问题，可以通过JS来做，在页面ready的时候判断内容区元素的高度是否未填充满，不满则设置到`$(window).height()`。
 
 
 Iframe 用法
 1. 用来实现长连接，在websocket不可用的时候作为一种替代，最开始由google发明。Comet：基于 HTTP 长连接的“服务器推”技术（基于iframe和htmlfile的流方式，通过在html页面里嵌入一个隐藏iframe，将这个iframe的src属性设置为对一个长连接的请求，服务器端就能源源不断地往客户端输入数据。数据并不返回直接显示在页面的数据，而是返回对客户端JS函数的调用，来自服务器端的数据作为JS函数的参数传递，客户端浏览器的JS引擎在收到服务器返回的JS调用时就会去执行代码。一个不足，页面一直是加载进行中，解决办法，使用一个称为htmlfile的ActiveX解决IE加载显示问题。）
-        
-        How? By cleverly abusing another safe-for-scripting ActiveX control in IE. Here’s the basic structure of the hack:
+
+
+
+```js
+        //How? By cleverly abusing another safe-for-scripting ActiveX control in IE. Here’s the basic structure of the hack:
         --------------------------------------------------------------
         // we were served from child.example.com but 
         // have already set document.domain to example.com
@@ -36,12 +39,18 @@ Iframe 用法
         // start communicating
         ifrDiv.innerHTML = "<iframe src='"+dataStreamUrl+"'></iframe>";
         ----------------------------------------------------------------
-        This is the kind of fundamental technique that is critical to making the next generation of interactive experiences a reality.
+        //This is the kind of fundamental technique that is critical to making the next generation of interactive experiences a reality.
+```
+
+
 
 2. 跨域通信。JavaScript跨域总结与解决办法 ，类似的还有浏览器多页面通信，比如音乐播放器，用户如果打开了多个tab页，应该只有一个在播放。
 3. 历史记录管理，解决ajax化网站响应浏览器前进后退按钮的方案，在html5的history api不可用时作为一种替代。
 4. 纯前端的utf8和gbk编码互转。比如在utf8页面需要生成一个gbk的encodeURIComponent字符串，可以通过页面加载一个gbk的iframe，然后主页面与子页面通信的方式实现转换，这样就不用在页面上插入一个非常巨大的编码映射表文件了， 把这个iframe部署到父页面的同源服务上，就能在父页面直接调用iframe中的encoding接口了。
 
+
+
+```html
         <!doctype html>
         <html>
         <head>
@@ -58,15 +67,22 @@ Iframe 用法
             </script>
         </head>
         </html>
+```
+
 
 
 5. 用iframe实现无刷新文件上传，在FormData不可用时作为替代方案
 6. 在移动端用于从网页调起客户端应用（此方法在iphone上并不安全，慎用！具体风险看这里  iOS URL Scheme 劫持 ）。比如想在网页中调起支付宝，我们可以创建一个iframe，
 
-        src为：alipayqr://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode={支付二维码扫描的url}
+
+```js
+   src为：alipayqr://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode={支付二维码扫描的url}
+```
+
 
 浏览器接收到这个url请求发现未知协议，会交给系统处理，系统就能调起支付宝客户端了。我们还能趁机检查一下用户是否安装客户端：给iframe设置一个3-5秒的css3的transition过渡动画，然后监听动画完成事件，如果用户安装了客户端，那么系统会调起，并将浏览器转入后台运行，进入后台的浏览器一般不会再执行css动画，这样，我们就能通过判断css动画执行的时长是否超过预设来判断用户是否安装某个客户端了
 
+```js
         /**
         * 调起客户端
         * @param url {String}
@@ -107,6 +123,8 @@ Iframe 用法
                 ifr.style.left = '-10px';
             }, 0);
         };
+```
+
 
 7. 创建一个全新的独立的宿主环境。iframe还可以用于创建新的宿主环境，用于隔离或者访问原始接口及对象，比如有些前端安全的防范会覆盖一些原生的方法防止恶意调用，那我们就能通过创建一个iframe，然后从iframe中取回原始对象和方法来破解这种防范。javascript裸对象创建中的一种方法：如何创建一个JavaScript裸对象 ，一般所见即所得编辑器也是由iframe创建的.
 8. IE6下用于遮罩select。经 @yaniv 提醒想起来的。曾经在ie6时代，想搞一个模态窗口，如果窗口叠加在select元素上面，是遮不住select的，为了解决这个问题，可以通过在模态窗口元素下面垫一个iframe来实现遮罩，好坑爹的ie6.
@@ -139,37 +157,39 @@ iframe用于隔离父-子页面和提供特殊的布局格式，想上中下格�
 
 
 -----------
-window.postMessage()方法可以安全的《跨源》通信。
+window.postMessage()方法可以安全的"跨源"通信。
 window.postMessage()方法被调用时，会在所有页面脚本执行完毕之后向目标窗口派发一个MessageEvent消息。该MessageEvent消息有四个属性需要注意：
 * message属性表示该message的类型
 * data属性为window.postMessage的第一个参数
 * origin 属性表示调用window.postMessage()方法时调用页面的当前状态
 * source 属性记录调用window.postMessage()方法的窗口信息
 
-语法： otherWindow.postMessage(message,targetOrigin,[transfer]);
+语法：` otherWindow.postMessage(message,targetOrigin,[transfer]);`
 * otherWindow 其他窗口的一个引用，如iframe.contentWindow
 * message 将要发送到其他window的数据。它将被结构化克隆算法序列化。
 * targetOrigin 通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串（*）或一个特定的URL,发送消息是必须保证目标窗口的协议，主机地址和端口这三项完全匹配，才会被发送。这个机制用来控制消息可以发送到哪些窗口。
 
-<pre><code>
+
+```js
 //code come from https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage
+
+////send side////////////////
 var popus=window.open(...);
 popup.postMessage("this is simpale message need be transfer","https://secure.example.net");
 popup.postMessage("hello", "http://example.org");
+
 function reeciveMessage(event){
     if(event.origin!=="http://example.org")return;
+    console.log(event);
 }
 window.addEventListener("message",receiveMessage,false);
-</code></pre>
 
-//////////
-
-<pre><code>
+/////receive side///////
 function receiveMessage(event){
     if(event.origin!=="http://example.com:8080")return; 
- // event.source: the popup page by window.open
- // event.data : "hello"
+    // event.source: the popup page by window.open
+    // event.data : "hello"
     event.source.postMessage("hi there yourself",event.origin);
 }
 window.addEventListener("message",receiveMessage,false);
-</code></pre>
+```

@@ -5,11 +5,11 @@
 
 document.images和document.forms属于HTMLCollection对象（只读的类数组对象）
 
-
+```js
 	var content=Array.prototype.map.call(document.getElemetnsByTagName("p"),function(e){return e.innerHTML;});
 
 	var snapshot=Array.prototype.slice.call(nodelist,0);
-
+```
 
 *	`#nav` the element of id="nav"
 *	`div` all div element
@@ -32,7 +32,8 @@ document.images和document.forms属于HTMLCollection对象（只读的类数组�
 *	nodeValue
 *	NodeName
 ----------------------
-<pre><code>
+
+```js
 /*
 返回元素e的第n层祖先元素，
 如果不存在，则返回null，
@@ -158,4 +159,4 @@ var insert=(function(){
 
 }());
 
-</code></pre>
+```

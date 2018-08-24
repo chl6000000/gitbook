@@ -7,7 +7,7 @@ JavaScript 函数对象的内部状态不仅包含函数的代码逻辑，还必
 
 >理解闭包，首先要了解嵌套函数的词法作用域规则。
 
-<pre><code>
+```js
 var scope="global scope";
 function checkscop(){
 	var scope="local scope";
@@ -17,7 +17,9 @@ function checkscop(){
 checkscope();
 
 //checkscope函数声明了一个局部变量，并定义了一个函数f(), f()返回了这个变量的值，最后将函数f()的执行结果返回。
-</code></pre>
+```
+
+
 
 词法作用域的基本规则：javascript函数的执行用到了作用域链，这个作用域链是函数定义的时候创建的。嵌套的函数定义在这个作用域链里，其中的变量scope一定是局部变量，不管什么时候什么地点执行函数，这种绑定在执行函数时依然有效。
 返回结果是“local scope”

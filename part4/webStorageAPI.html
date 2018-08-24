@@ -298,6 +298,38 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="../part5/SOLID.html">
+            
+                <a href="../part5/SOLID.html">
+            
+                    
+                    Part V: Design principles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../part5/SOLID_sample.html">
+            
+                <a href="../part5/SOLID_sample.html">
+            
+                    
+                    SOLID sample
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -355,19 +387,20 @@ localStorage, &#x4E00;&#x76F4;&#x5B58;&#x50A8;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#
 <blockquote>
 <p>sessionStorage &#x5C5E;&#x6027;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;session storage&#x5BF9;&#x8C61;&#xFF0C; &#x5B83;&#x4E0E;localStorage&#x76F8;&#x4F3C;,&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;localStorage&#x91CC;&#x9762;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x8BBE;&#x7F6E;&#xFF0C;&#x800C;sessionStorage&#x91CC;&#x9762;&#x7684;&#x6570;&#x636E;&#x5728;&#x9875;&#x9762;&#x4F1A;&#x8BDD;&#x7ED3;&#x675F;&#x65F6;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002; &#x9875;&#x9762;&#x4F1A;&#x8BDD;&#x4E2D;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x671F;&#x95F4;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6216;&#x6062;&#x590D;&#x9875;&#x9762;&#x4ECD;&#x4F1A;&#x4FDD;&#x6301;&#x539F;&#x6765;&#x7684;&#x9875;&#x9762;&#x4F1A;&#x8BDD;&#x3002; &#x5728;&#x65B0;&#x6807;&#x7B7E;&#x6216;&#x7A97;&#x53E3;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4F1A;&#x8BDD;&#xFF08;&#x548C;session cookies&#x7684;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;&#x4E0D;&#x4E00;&#x6837;&#xFF09;&#x3002;</p>
 </blockquote>
-<pre><code>sessionStorage.setItem(&apos;key&apos;,&apos;value&apos;);// save data to sessionStorage instance in current domain
-var data = sessionStorage.getItem(&apos;key&apos;);// get item from sessionStorage instance
-sessionStorage.removeItem(&apos;key&apos;);// remove item from sessionStorage instance
-sessionStorage.clear();// clear all items(reset) from sessionStorage instance
+<pre><code class="lang-js">    sessionStorage.setItem(<span class="hljs-string">&apos;key&apos;</span>,<span class="hljs-string">&apos;value&apos;</span>);<span class="hljs-comment">// save data to sessionStorage instance in current domain</span>
+    <span class="hljs-keyword">var</span> data = sessionStorage.getItem(<span class="hljs-string">&apos;key&apos;</span>);<span class="hljs-comment">// get item from sessionStorage instance</span>
+    sessionStorage.removeItem(<span class="hljs-string">&apos;key&apos;</span>);<span class="hljs-comment">// remove item from sessionStorage instance</span>
+    sessionStorage.clear();<span class="hljs-comment">// clear all items(reset) from sessionStorage instance</span>
 
-//Demo : auto save textbox value if page be refreshed
-var field=document.getElementById(&quot;field&quot;);
-if(sessionStorage.getItem(&quot;autosave&quot;)) field.value=sessionStorage.getItem(&quot;autosave&quot;);
+    <span class="hljs-comment">//Demo : auto save textbox value if page be refreshed</span>
+    <span class="hljs-keyword">var</span> field=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;field&quot;</span>);
+    <span class="hljs-keyword">if</span>(sessionStorage.getItem(<span class="hljs-string">&quot;autosave&quot;</span>)) field.value=sessionStorage.getItem(<span class="hljs-string">&quot;autosave&quot;</span>);
 
-field.addEventListener(&quot;change&quot;,function(){
-    sessionStorage.setItem(&quot;autosave&quot;,field.value);
-});
+    field.addEventListener(<span class="hljs-string">&quot;change&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        sessionStorage.setItem(<span class="hljs-string">&quot;autosave&quot;</span>,field.value);
+    });
 </code></pre>
+
                                 
                                 </section>
                             
@@ -410,7 +443,7 @@ field.addEventListener(&quot;change&quot;,function(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Web Storage API","level":"1.5.4","depth":2,"next":{"title":"ScriptedHTTP_iframe_js","level":"1.5.5","depth":2,"path":"part4/ScriptedHTTP_iframe_js.md","ref":"part4/ScriptedHTTP_iframe_js.md","articles":[]},"previous":{"title":"DomTree_js","level":"1.5.3","depth":2,"path":"part4/DomTree_js.md","ref":"part4/DomTree_js.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Go to main page":"http://www.chl6000000.com"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part4/webStorageAPI.md","mtime":"2018-08-16T09:25:09.101Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T01:42:20.742Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Web Storage API","level":"1.5.4","depth":2,"next":{"title":"ScriptedHTTP_iframe_js","level":"1.5.5","depth":2,"path":"part4/ScriptedHTTP_iframe_js.md","ref":"part4/ScriptedHTTP_iframe_js.md","articles":[]},"previous":{"title":"DomTree_js","level":"1.5.3","depth":2,"path":"part4/DomTree_js.md","ref":"part4/DomTree_js.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Go to main page":"http://www.chl6000000.com"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part4/webStorageAPI.md","mtime":"2018-08-24T02:27:51.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T02:33:47.803Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

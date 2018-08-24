@@ -298,6 +298,38 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="../part5/SOLID.html">
+            
+                <a href="../part5/SOLID.html">
+            
+                    
+                    Part V: Design principles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../part5/SOLID_sample.html">
+            
+                <a href="../part5/SOLID_sample.html">
+            
+                    
+                    SOLID sample
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -351,18 +383,16 @@ JavaScript &#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x90E8;&#x72B6;&#x60
 <p>&#x4ECE;&#x6280;&#x672F;&#x89D2;&#x5EA6;&#xFF0C;&#x6240;&#x6709;&#x7684;javascr&#x51FD;&#x6570;&#x90FD;&#x662F;&#x95ED;&#x5305;&#xFF0C;&#x90FD;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x90FD;&#x5173;&#x8054;&#x5230;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x3002;</p>
 <p>&#x7406;&#x89E3;&#x95ED;&#x5305;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x4E86;&#x89E3;&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x7684;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x89C4;&#x5219;&#x3002;</p>
 </blockquote>
-<pre><code>
-var scope=&quot;global scope&quot;;
-function checkscop(){
-    var scope=&quot;local scope&quot;;
-    function f(){return scope;}
-    return f();
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scope=<span class="hljs-string">&quot;global scope&quot;</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkscop</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> scope=<span class="hljs-string">&quot;local scope&quot;</span>;
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>)</span>{<span class="hljs-keyword">return</span> scope;}
+    <span class="hljs-keyword">return</span> f();
 }
 checkscope();
 
-//checkscope&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;f(), f()&#x8FD4;&#x56DE;&#x4E86;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x51FD;&#x6570;f()&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;
+<span class="hljs-comment">//checkscope&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;f(), f()&#x8FD4;&#x56DE;&#x4E86;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x51FD;&#x6570;f()&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;</span>
 </code></pre>
-
 <p>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x57FA;&#x672C;&#x89C4;&#x5219;&#xFF1A;javascript&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x7528;&#x5230;&#x4E86;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x662F;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x7684;&#x3002;&#x5D4C;&#x5957;&#x7684;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5728;&#x8FD9;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x91CC;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x53D8;&#x91CF;scope&#x4E00;&#x5B9A;&#x662F;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x4E0D;&#x7BA1;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4EC0;&#x4E48;&#x5730;&#x70B9;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x79CD;&#x7ED1;&#x5B9A;&#x5728;&#x6267;&#x884C;&#x51FD;&#x6570;&#x65F6;&#x4F9D;&#x7136;&#x6709;&#x6548;&#x3002;
 &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x662F;&#x201C;local scope&#x201D;</p>
 <p>&#x95ED;&#x5305;&#x7684;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF1A;&#x53EF;&#x4EE5;&#x6355;&#x6349;&#x5230;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x548C;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x7ED1;&#x5B9A;&#x5230;&#x4E86;&#x5728;&#x5176;&#x4E2D;&#x5B9A;&#x4E49;&#x5B83;&#x4EEC;&#x7684;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x3002;</p>
@@ -469,7 +499,7 @@ checkscope();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Closure_js","level":"1.5.2","depth":2,"next":{"title":"DomTree_js","level":"1.5.3","depth":2,"path":"part4/DomTree_js.md","ref":"part4/DomTree_js.md","articles":[]},"previous":{"title":"BestPractice","level":"1.5.1","depth":2,"path":"part4/BestPractice.md","ref":"part4/BestPractice.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Go to main page":"http://www.chl6000000.com"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part4/Closure_js.md","mtime":"2018-08-24T01:34:28.307Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T01:42:20.742Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Closure_js","level":"1.5.2","depth":2,"next":{"title":"DomTree_js","level":"1.5.3","depth":2,"path":"part4/DomTree_js.md","ref":"part4/DomTree_js.md","articles":[]},"previous":{"title":"BestPractice","level":"1.5.1","depth":2,"path":"part4/BestPractice.md","ref":"part4/BestPractice.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Go to main page":"http://www.chl6000000.com"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"part4/Closure_js.md","mtime":"2018-08-24T02:25:20.816Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T02:33:47.803Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
