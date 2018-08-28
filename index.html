@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
@@ -64,6 +68,10 @@
     <div class="book-summary">
         
             
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
             
                 <nav role="navigation">
                 
@@ -315,6 +323,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.2" data-path="part5/mediator.html">
+            
+                <a href="part5/mediator.html">
+            
+                    
+                    Mediator design
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -360,6 +381,9 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
+<div id="book-search-results">
+    <div class="search-noresults">
+    
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="introduction">Introduction</h1>
@@ -371,6 +395,22 @@ as reference</p>
                                 
                                 </section>
                             
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 
@@ -390,7 +430,7 @@ as reference</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Part I: GitBook","level":"1.2","depth":1,"path":"part1/README.md","ref":"part1/README.md","articles":[{"title":"GitBook Install","level":"1.2.1","depth":2,"path":"part1/gitbook.md","ref":"part1/gitbook.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Github Home":"https://github.com/chl6000000/gitbook"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"README.md","mtime":"2018-08-16T09:21:09.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T02:53:31.389Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Part I: GitBook","level":"1.2","depth":1,"path":"part1/README.md","ref":"part1/README.md","articles":[{"title":"GitBook Install","level":"1.2.1","depth":2,"path":"part1/gitbook.md","ref":"part1/gitbook.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontSettings":{"theme":"sepia","family":"serif","size":"1 to 4"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":null,"theme":"default","githubHost":"https://github.com/","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ebook 2","links":{"sidebar":{"Github Home":"https://github.com/chl6000000/gitbook"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":null,"extension":null},"file":{"path":"README.md","mtime":"2018-08-16T09:21:09.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T09:25:39.997Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -398,6 +438,14 @@ as reference</p>
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
